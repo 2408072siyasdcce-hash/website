@@ -5,41 +5,6 @@
     <title>Creative Studio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-    
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbwrNqsSxPORY0rPmW5zMX2bTKtlg6Jcr0sQWk7by9NDAXGuD2Bh7gUYPOcGMcqbPujG/exec";
-
-const form = document.getElementById("contactForm");
-const status = document.getElementById("status");
-
-form.addEventListener("submit", function(e) {
-
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const data = new URLSearchParams(formData);
-
-    status.innerHTML = "Submitting...";
-
-    fetch(scriptURL, {
-        method: "POST",
-        mode: "no-cors",
-        body: data
-    })
-    .then(() => {
-        status.innerHTML = "Request sent! Check your Google Sheet.";
-        form.reset();
-    })
-    .catch(error => {
-        status.innerHTML = "Something went wrong. Please try again.";
-        console.log(error);
-    });
-
-});
-</script>
-</body>
-</html>
-
 
 <body>
 
@@ -76,6 +41,7 @@ form.addEventListener("submit", function(e) {
         <h2>Our Services</h2>
 
         <div class="services">
+
             <div class="card">
                 <h3>Web Design</h3>
                 <p>We create attractive website designs.</p>
@@ -90,44 +56,88 @@ form.addEventListener("submit", function(e) {
                 <h3>UI/UX Design</h3>
                 <p>We design user-friendly interfaces.</p>
             </div>
+
         </div>
     </section>
 
-    <!-- Contact Section -->
-   
-<!-- Contact Form -->
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Send us a message. We would love to hear from you!</p>
+    <!-- Contact Form -->
+    <section id="contact">
 
-    <form id="contactForm">
+        <h2>Contact Us</h2>
 
-        <input type="text"
-               name="name"
-               placeholder="Enter your name"
-               required>
+        <p>Send us a message. We would love to hear from you!</p>
 
-        <input type="email"
-               name="email"
-               placeholder="Enter your email"
-               required>
+        <form id="contactForm">
 
-        <textarea name="message"
-                  placeholder="Enter your message"
-                  required></textarea>
+            <input type="text"
+                   name="name"
+                   placeholder="Enter your name"
+                   required>
 
-        <button type="submit">Submit</button>
+            <input type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   required>
 
-    </form>
+            <textarea name="message"
+                      placeholder="Enter your message"
+                      required></textarea>
 
-    <p id="status"></p>
-</section>
+            <button type="submit">Submit</button>
 
+        </form>
+
+        <p id="status"></p>
+
+    </section>
 
     <!-- Footer -->
     <footer>
         <p>© 2026 Creative Studio. All Rights Reserved.</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwrNqsSxPORY0rPmW5zMX2bTKtlg6Jcr0sQWk7by9NDAXGuD2Bh7gUYPOcGMcqbPujG/exec";
+
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const data = new URLSearchParams(formData);
+
+        status.innerHTML = "Submitting...";
+
+        fetch(scriptURL, {
+            method: "POST",
+            mode: "no-cors",
+            body: data
+        })
+
+        .then(() => {
+
+            status.innerHTML = "Request sent! Please check Google Sheets.";
+
+            form.reset();
+
+        })
+
+        .catch(error => {
+
+            status.innerHTML = "Something went wrong!";
+
+            console.log(error);
+
+        });
+
+    });
+
+    </script>
 
 </body>
 </html>
