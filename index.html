@@ -59,11 +59,35 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: creativestudio@gmail.com</p>
-        <p>Phone: 9876543210</p>
-    </section>
+   
+<!-- Contact Form -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Send us a message. We would love to hear from you!</p>
+
+    <form id="contactForm">
+
+        <input type="text"
+               name="name"
+               placeholder="Enter your name"
+               required>
+
+        <input type="email"
+               name="email"
+               placeholder="Enter your email"
+               required>
+
+        <textarea name="message"
+                  placeholder="Enter your message"
+                  required></textarea>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <p id="status"></p>
+</section>
+
 
     <!-- Footer -->
     <footer>
